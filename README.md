@@ -49,4 +49,5 @@ Run the application
 ```bash
 python app.py
 ```
-    
+## Screenshot
+![](screenshots/admin.png)
