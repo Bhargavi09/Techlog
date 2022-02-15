@@ -51,3 +51,10 @@ python app.py
 ```
 ## Screenshot
 ![](screenshots/admin.png)
+![](screenshots/dashboard(1).png)
+![](screenshots/createPost.png)
+![](screenshots/managePost.png)
+![](screenshots/restorePost.png)
+![](screenshots/webapp.png)
+![](screenshots/category.png)
+![](screenshots/feedback.png)
