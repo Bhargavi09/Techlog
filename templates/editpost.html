@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+{% block content %}
+<div id="main-content" xmlns="http://www.w3.org/1999/html">
+    <!-- BEGIN PAGE CONTAINER-->
+    <div class="container-fluid">
+        <!-- BEGIN PAGE HEADER-->
+        <div class="row-fluid">
+            <div class="span12">
+                <!-- BEGIN THEME CUSTOMIZER-->
+                <div id="theme-change" class="hidden-phone">
+                    <i class="icon-cogs"></i>
+                    <span class="settings">
+                        <span class="text">Theme:</span>
+                        <span class="colors">
+                            <span class="color-default" data-style="default"></span>
+                            <span class="color-gray" data-style="gray"></span>
+                            <span class="color-purple" data-style="purple"></span>
+                            <span class="color-navy-blue" data-style="navy-blue"></span>
+                        </span>
+                    </span>
+                </div>
+                <!-- END THEME CUSTOMIZER-->
+                <h3 class="page-title">
+                    Edit your Post!
+
+                </h3>
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="#"><i class="icon-home"></i></a><span class="divider">&nbsp;</span>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <!-- END PAGE HEADER-->
+        <!-- BEGIN PAGE CONTENT-->
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget box blue" id="form_wizard_1">
+                    <div class="widget-title">
+                        <h4>
+                            <i class="icon-reorder"></i>New Post
+                        </h4>
+                        <span class="tools">
+                            <a href="javascript:;" class="icon-chevron-down"></a>
+                            <a href="javascript:;" class="icon-remove"></a>
+                        </span>
+                    </div>
+                    <div class="widget-body form">
+                        <form action="/updateRecord/{{ data[0][0] }}" method="post" class="form-horizontal"
+                            enctype="multipart/form-data">
+                            <div class="form-wizard">
+                                <div class="navbar steps">
+                                    <div class="navbar-inner">
+
+                                        {% for row in data %}
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="tab1">
+                                                <div class="control-group">
+                                                    <label class="control-label">Category</label>
+                                                    <div class="controls">
+                                                        <input type="text" class="span6" name="postname" value="{{ row[1] }}" />
+                                                        <span class="help-inline"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <label class="control-label">Post Title</label>
+                                                    <div class="controls">
+                                                        <input type="text" name="posttitle" class="span6"  value="{{ row[2] }}"/>
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <label class="control-label">Author's Name</label>
+                                                    <div class="controls">
+                                                        <input type="text" name="authorname" class="span6" value="{{ row[9] }}" />
+                                                        <span class="help-inline"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <label class="control-label">Author's Bio</label>
+                                                    <div class="controls">
+                                                        <input type="text" name="authorbio" class="span6" value="{{ row[10] }}" />
+                                                        <span class="help-inline"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <label class="control-label">Post Introduction</label>
+                                                    <div class="controls">
+                                                        <input type="text" name="introduction" class="span6" value="{{ row[4] }}" />
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                <label class="control-label">Post Content</label>
+                                                <div class="controls">
+                                                    <textarea name="postcontent" class="span6" rows="30" maxlength="100000">{{ row[5] }}</textarea>
+                                                </div>
+                                            </div>
+
+                                            
+                                            <div class="control-group">
+                                                <label class="control-label">Post Conclusion</label>
+                                                <div class="controls">
+                                                    <input type="text" name="conclusion" class="span6" value="{{ row[6] }}" />
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="control-group">
+                                            <label class="control-label">Post Image</label>
+                                            <div class="controls">
+                                                <!-- <input type="image" name="image" value="{{ row[3] }}"> -->
+                                                <!-- <img src="/static/upload/{{ row[3] }}" alt="" class="image-preview"> -->
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+
+
+
+                                        <div class="tab-pane" id="tab4">
+
+
+                                            <div class="control-group">
+                                                <label class="control-label"></label>
+                                                <div class="controls">
+                                                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                        <div class="fileupload-new thumbnail"
+                                                            style="width: 200px; height: 150px;">
+                                                            <!-- <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image"
+                                                                alt="" /> -->
+                                                                <img src="static/upload/{{ data[0][3] }}" alt="" class="image-preview">
+                                                        </div>
+                                                        <div class="fileupload-preview fileupload-exists thumbnail"
+                                                            style="max-width: 200px; max-height: 150px; line-height: 20px;">
+                                                        </div>
+                                                        <div>
+                                                            <span class="btn btn-file"><span
+                                                                    class="fileupload-new">Select image</span>
+                                                                <span class="fileupload-exists">Change</span>
+                                                                <input type="file" class="default"
+                                                                    name="photo" /></span>
+                                                            <a href="#" class="btn fileupload-exists"
+                                                                data-dismiss="fileupload">Remove</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-actions clearfix">
+                                    <a href="javascript:;" class="btn button-previous">
+                                        <i class="icon-angle-left"></i> Back
+                                    </a>
+
+
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                                    </a>
+                                </div>
+                                <div>
+                                </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END PAGE CONTAINER-->
+</div>
+{% endblock %}
