@@ -56,5 +56,4 @@ python app.py
 ![](screenshots/managePost.png)
 ![](screenshots/restorePost.png)
 ![](screenshots/webapp.png)
-![](screenshots/category.png)
 ![](screenshots/feedback.png)
